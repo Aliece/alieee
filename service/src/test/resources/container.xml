@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<components>
+
+	<!-- comment/delete this line in jdonframework.jar /META-INF/container.xml
+
+	<component name="cache" class="com.aliece.alieee.cache.LRUCache">
+		<constructor value="cache.xml" />
+	</component>
+	-->
+
+	<!-- active EnCache see prodject : components/encache: add these lines  in jdonframework.jar /META-INF/container.xml
+	
+		<component name="cache" class="com.aliece.alieee.components.encache.EncacheProvider" />
+		
+		<component name="ehcacheConf" class="com.aliece.alieee.components.encache.EhcacheConf" >
+		<constructor value="jdon_ehcache.xml"/>
+		<constructor value="jdonCache"/>
+		</component>
+	-->
+	
+	<!--  from 2013 default cache is google guava cache -->
+	<component name="cache" class="com.aliece.alieee.cache.GuavaCacheProvider" />
+		
+	<component name="guavaCacheConf" class="com.aliece.alieee.cache.GuavaCacheConf" >
+		 <constructor value="130000"/>
+	</component>
+	    
+
+	<component name="httpSessionVisitorFactorySetup"
+		class="com.aliece.alieee.container.visitor.http.HttpSessionVisitorFactorySetup">
+		<constructor value="40" />
+		<!-- it is  count of the cached instances that saved in a sessionContext instance,  -->
+		<constructor value="true" /> <!--  disable all session cached except SessionConext -->
+	</component>
+
+
+	<component name="sessionContextFactoryVisitable"
+		class="com.aliece.alieee.container.visitor.data.SessionContextFactoryVisitable">
+		<constructor value="10" />
+		<!--   max size of objects can be saved into one sessionContext instance  -->
+	</component>
+
+
+
+	<component name="cacheManager"
+		class="com.aliece.alieee.domain.model.cache.CacheManager" />
+
+	<!-- components about model configuration start 
+
+	<component name="modelHandlerClassFactory"
+		class="com.aliece.alieee.model.factory.ModelHandlerClassFactoryXmlImp" />
+
+	<component name="modelHandler"
+		class="com.aliece.alieee.model.handler.XmlModelHandler" />
+
+	<component name="modelHandlerClassBuilder"
+		class="com.aliece.alieee.model.factory.ModelHandlerClassXMLBuilder" />
+
+	<component name="handlerObjectFactory"
+		class="com.aliece.alieee.model.handler.HandlerObjectFactory" />
+-->
+	<component name="modelCacheManager"
+		class="com.aliece.alieee.domain.model.cache.ModelCacheManager" />
+
+	<component name="modelManager"
+		class="com.aliece.alieee.domain.model.cache.ModelManagerImp" />
+
+	<!-- components about model configuration end -->
+	
+	<component name="targetMetaDefLoader"
+		class="com.aliece.alieee.container.TargetMetaDefXmlLoader" />
+	
+	<component name="targetMetaDefHolder"
+		class="com.aliece.alieee.container.annotation.TargetMetaDefHolder" />
+	
+
+	<!-- components about  AOP start  -->
+
+	<component name="instanceCache"
+		class="com.aliece.alieee.domain.model.cache.InstanceCache" />
+
+	<component name="interceptorsChain"
+		class="com.aliece.alieee.aop.interceptor.InterceptorsChain" />
+
+	<component name="advisorChainFactory"
+		class="com.aliece.alieee.aop.joinpoint.AdvisorChainFactory" />
+
+	<component name="aopClient" class="com.aliece.alieee.aop.AopClient" />
+
+
+
+	<component name="targetMetaRequestsHolder"
+		class="com.aliece.alieee.container.TargetMetaRequestsHolder" />
+		
+	<component name="userTargetMetaDefFactory"
+		class="com.aliece.alieee.container.access.UserTargetMetaDefFactory" />
+		
+
+	<!-- components about  AOP end  -->
+
+	<!-- components about  session cache  start  
+	<component name="proxyInstanceFactoryVisitable"
+		class="com.aliece.alieee.bussinessproxy.dyncproxy.ProxyInstanceFactoryVisitable" />-->
+		
+	<!-- CGLIB proxy: http://www.jdon.com/jivejdon/thread/37330#23125184-->
+	<component name="proxyInstanceFactoryVisitable"
+		class="com.aliece.alieee.bussinessproxy.dyncproxy.cglib.CGLIBProxyInstanceFactoryVisitable" />
+		
+
+	<component name="targetServiceFactoryVisitable"
+		class="com.aliece.alieee.bussinessproxy.target.TargetServiceFactoryVisitable" />
+
+	<component name="componentVisitor"
+		class="com.aliece.alieee.container.visitor.ComponentOriginalVisitor" />
+
+	<!-- if not use HttpSession as SessionContext Container, replace this  -->
+	<component name="visitorFactory"
+		class="com.aliece.alieee.container.visitor.http.HttpSessionVisitorFactoryImp" />
+
+	<!-- components about  session cache  end  -->
+
+	<!--  components about target service object factory start -->
+	<component name="targetServiceFactory"
+		class="com.aliece.alieee.bussinessproxy.target.DefaultTargetServiceFactory" />
+
+   <!-- 
+	<component name="pOJOObjectFactory"
+		class="com.aliece.alieee.bussinessproxy.target.POJOObjectFactory" />
+		 -->
+
+	<component name="poolConfigure"
+		class="com.aliece.alieee.controller.pool.PoolConfigure">
+		<constructor value="1000" />
+	</component>
+	<!--  components about target service object factory end -->
+
+
+	<!--  components about container entry start -->
+	<component name="sessionContextSetup"
+		class="com.aliece.alieee.container.visitor.http.HttpRequestUserSetup" />
+
+	<component name="serviceAccessor"
+		class="com.aliece.alieee.container.access.ServiceAccessorImp" />
+
+	<component name="webServiceAccessor"
+		class="com.aliece.alieee.controller.service.WebServiceAccessorImp" />
+
+	<component name="webService"
+		class="com.aliece.alieee.controller.service.WebServiceImp" />
+
+	<component name="webServiceFactory"
+		class="com.aliece.alieee.controller.service.WebServiceFactory" />
+	<!--  components about container entry end -->
+	
+	<component name="domainProxyFactory" class="com.aliece.alieee.container.interceptor.ProxyFactory"></component>
+	
+	<component name="domainCacheInterceptor" class="com.aliece.alieee.domain.model.cache.DomainCacheInterceptor"></component>
+	
+	<component name="modelProxyFactory" class="com.aliece.alieee.domain.proxy.ModelProxyFactory"></component>
+	
+	<component name="modelAdvisor" class="com.aliece.alieee.domain.advsior.ModelAdvisor"></component>
+	
+	<component name="modelProxyInjection" class="com.aliece.alieee.domain.model.injection.ModelProxyInjection"></component>
+	
+	<!-- disruptorParams concurrent event  -->
+	<component name="disruptorParams" class="com.aliece.alieee.async.disruptor.DisruptorParams">
+	    <constructor value="2048" />	    
+    </component>
+    
+    <component name="disruptorFactory" class="com.aliece.alieee.async.disruptor.DisruptorFactory"></component>
+    <component name="disruptorPoolFactory" class="com.aliece.alieee.async.disruptor.pool.DisruptorPoolFactory"></component>
+    
+	<component name="disruptorForCommandFactory" class="com.aliece.alieee.async.disruptor.DisruptorForCommandFactory"></component>
+	<component name="disruptorCommandPoolFactory" class="com.aliece.alieee.async.disruptor.pool.DisruptorCommandPoolFactory"></component>
+	
+    <component name="futureDirector" class="com.aliece.alieee.async.future.FutureDirector">
+			<constructor value="50" />
+    </component>
+    <component name="eventMessageFirer" class="com.aliece.alieee.async.EventMessageFirer"></component>
+	
+    
+    
+    <!-- asnc end -->
+ 
+    <!-- DCI -->
+    <component name="roleAssigner" class="com.aliece.alieee.domain.dci.RoleAssigner"/>
+ 
+
+</components>

@@ -1,0 +1,17 @@
+<configuration debug="false" scan="true" scanPeriod="30 seconds">
+	<property name="FILE_PATTERN" value="%d [%t] %5p %c - %m%n" />
+
+	<property name="LOG_FILE_NAME" value="darwin-drp" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d [%t] %5p \(%F:%L\) %M\(\) - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.aliece.alieee" />
+
+	<root level="${log.level}">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aspect>
+
+  <interceptor name="cacheInterceptor" class="com.aliece.alieee.aop.interceptor.CacheInterceptor" pointcut="services" />
+	
+  <interceptor name="poolInterceptor" class="com.aliece.alieee.aop.interceptor.PoolInterceptor" pointcut="pojoServices" />
+ 
+  <interceptor name="statefulInterceptor" class="com.aliece.alieee.aop.interceptor.StatefulInterceptor" pointcut="pojoServices" />	
+
+  <interceptor name="sessionContextInterceptor" class="com.aliece.alieee.aop.interceptor.SessionContextInterceptor" pointcut="pojoServices" />
+  
+  <interceptor name="modelCache" class="com.aliece.alieee.domain.model.cache.DomainCacheInterceptor" pointcut="domain" />
+  
+  <interceptor name="message" class="com.aliece.alieee.domain.message.MessageInterceptor" pointcut="model" />
+      <!-- com.aliece.alieee.aop.joinpoint -->
+   <interceptor name="componentmessage" class="com.aliece.alieee.aop.interceptor.ComponentMessageInterceptor" pointcut="domain" />      
+  	
+</aspect>
