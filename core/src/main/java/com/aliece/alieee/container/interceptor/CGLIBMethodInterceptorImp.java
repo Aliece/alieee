@@ -45,7 +45,7 @@ public class CGLIBMethodInterceptorImp implements MethodInterceptor, Startable {
 
 		Object result = null;
 		try {
-			Debug.logVerbose("[JdonFramework]<----> executing MethodInterceptor for method=" + invokedmethod.getDeclaringClass().getName() + "."
+			Debug.logVerbose("[alieee]<----> executing MethodInterceptor for method=" + invokedmethod.getDeclaringClass().getName() + "."
 					+ invokedmethod.getName() + " successfully!", module);
 
 			MethodInvocation methodInvocation = new MethodInvocationImp(target, beforeAfterMethodTarget, methodInterceptors, invokedmethod, objects,

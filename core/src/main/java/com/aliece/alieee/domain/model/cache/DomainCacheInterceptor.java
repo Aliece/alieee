@@ -84,7 +84,7 @@ public class DomainCacheInterceptor implements MethodInterceptor, Startable {
 			Debug.logVerbose(" get model from database, cacheKey=" + modelKey.toString(), module);
 
 			o = modelManager.addCache(modelKey, o);
-			Debug.logVerbose("[JdonFramework] save to cache2", module);
+			Debug.logVerbose("[alieee] save to cache2", module);
 		} catch (Exception e) {
 			Debug.logError("invoke:" + e, module);
 		}
@@ -110,7 +110,7 @@ public class DomainCacheInterceptor implements MethodInterceptor, Startable {
 			if (returnClass.getSuperclass() == null)
 				return false; // 无返回值，不做缓存
 
-			Debug.logVerbose("[JdonFramework]methodMatchsModelGET: returnClassName = " + returnClass.getName(), module);
+			Debug.logVerbose("[alieee]methodMatchsModelGET: returnClassName = " + returnClass.getName(), module);
 			if (ModelUtil.isModel(returnClass)) {
 				adviceArounds.put(targetClass.getName(), methodx.getName());
 				return true;

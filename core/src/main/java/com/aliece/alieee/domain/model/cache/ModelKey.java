@@ -25,7 +25,7 @@ package com.aliece.alieee.domain.model.cache;
  * </p>
  * 
  *
- * @version JdonFramework 2005 v1.0
+ * @version alieee 2005 v1.0
  */
 public class ModelKey {
 

@@ -44,7 +44,7 @@ public class ServiceLoader {
 		Set<String> classes = annotationScaner.getScannedAnnotations(context).get(Service.class.getName());
 		if (classes == null)
 			return;
-		Debug.logVerbose("[JdonFramework] found Annotation components size:" + classes.size(), module);
+		Debug.logVerbose("[alieee] found Annotation components size:" + classes.size(), module);
 		for (Object className : classes) {
 			createAnnotationServiceClass((String) className, annotationHolder, containerWrapper);
 		}
@@ -54,7 +54,7 @@ public class ServiceLoader {
 		try {
 			Class cclass = Utils.createClass(className);
 			Service serv = (Service) cclass.getAnnotation(Service.class);
-			Debug.logVerbose("[JdonFramework] load Annotation service name:" + serv.value() + " class:" + className, module);
+			Debug.logVerbose("[alieee] load Annotation service name:" + serv.value() + " class:" + className, module);
 
 			String name = UtilValidate.isEmpty(serv.value()) ? cclass.getName() : serv.value();
 			annotationHolder.addComponent(name, cclass);
@@ -62,7 +62,7 @@ public class ServiceLoader {
 
 			consumerLoader.loadMehtodAnnotations(cclass, containerWrapper);
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] createAnnotationserviceClass error:" + e, module);
+			Debug.logError("[alieee] createAnnotationserviceClass error:" + e, module);
 		}
 	}
 

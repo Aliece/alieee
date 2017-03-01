@@ -54,7 +54,7 @@ public class WebAppUtil {
 		ServletContext sc = request.getSession().getServletContext();
 		ContainerWrapper containerWrapper = scf.findContainer(new ServletContextWrapper(sc));
 		if (!containerWrapper.isStart()) {
-			Debug.logError("JdonFramework not yet started, please try later ", module);
+			Debug.logError("alieee not yet started, please try later ", module);
 			return null;
 		}
 		return containerWrapper.lookup(name);
@@ -71,7 +71,7 @@ public class WebAppUtil {
 	public static Object getComponentInstance(String name, ServletContext sc) {
 		ContainerWrapper containerWrapper = scf.findContainer(new ServletContextWrapper(sc));
 		if (!containerWrapper.isStart()) {
-			Debug.logError("JdonFramework not yet started, please try later ", module);
+			Debug.logError("alieee not yet started, please try later ", module);
 			return null;
 		}
 		return containerWrapper.lookup(name);

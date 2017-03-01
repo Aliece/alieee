@@ -30,7 +30,7 @@ public class XmlPojoServiceParser extends XmlParser {
 
 	public void parse(Element root, Map<String, TargetMetaDef> mps) throws Exception {
 		Debug
-				.logVerbose("[JdonFramework] enter XmlPojoServiceParser .",
+				.logVerbose("[alieee] enter XmlPojoServiceParser .",
 						module);
 		List services = root.getChildren("services");
 		Iterator iter = services.iterator();
@@ -63,7 +63,7 @@ public class XmlPojoServiceParser extends XmlParser {
 			throws Exception {
 		String name = pojoService.getAttributeValue("name");
 		String className = pojoService.getAttributeValue("class");
-		Debug.logVerbose("[JdonFramework] pojoService/component name=" + name
+		Debug.logVerbose("[alieee] pojoService/component name=" + name
 				+ " class=" + className, module);
 
 		if ((className == null) || (className.equals("")))
@@ -72,7 +72,7 @@ public class XmlPojoServiceParser extends XmlParser {
 		List mappings = pojoService.getChildren("constructor");
 		String[] constructors = null;
 		if ((mappings != null) && (mappings.size() != 0)) {
-			Debug.logVerbose("[JdonFramework] constructor parameters number:"
+			Debug.logVerbose("[alieee] constructor parameters number:"
 					+ mappings.size() + " for pojoservice " + name, module);
 			constructors = new String[mappings.size()];
 			int j = 0;
@@ -80,7 +80,7 @@ public class XmlPojoServiceParser extends XmlParser {
 			while (i.hasNext()) {
 				Element constructor = (Element) i.next();
 				String value = constructor.getAttributeValue("value");
-				Debug.logVerbose("[JdonFramework] pojoService constructor="
+				Debug.logVerbose("[alieee] pojoService constructor="
 						+ value, module);
 				constructors[j] = value;
 				j++;

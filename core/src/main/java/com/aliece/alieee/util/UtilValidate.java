@@ -33,8 +33,6 @@ import java.util.Collection;
  * <p>General input/data validation methods
  * <p>Utility methods for validating data, especially input. See detailed description below.
  *
- * @author     <a href="mailto:jonesde@ofbiz.org">David E. Jones</a>
- * @created    May 21, 2001
  * @version    1.0
  *
  *

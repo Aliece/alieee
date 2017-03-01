@@ -67,7 +67,7 @@ public class AdvisorChainFactory implements Startable {
 	 * 
 	 */
 	public List<MethodInterceptor> create(TargetMetaDef targetMetaDef) throws Exception {
-		Debug.logVerbose("[JdonFramework] enter  create PointcutAdvisor  ", module);
+		Debug.logVerbose("[alieee] enter  create PointcutAdvisor  ", module);
 		if (targetMetaDef.isEJB()) {
 			if (interceptorsForEJB.isEmpty()) {
 				createEJBAdvice(targetMetaDef);
@@ -89,7 +89,7 @@ public class AdvisorChainFactory implements Startable {
 	}
 
 	public List<MethodInterceptor> createTargetAdvice(String name) throws Exception {
-		Debug.logVerbose("[JdonFramework] enter   createTargetAdvice  ", module);
+		Debug.logVerbose("[alieee] enter   createTargetAdvice  ", module);
 		List<MethodInterceptor> targets = targetInterceptors.get(name);
 		if (targets == null) {
 			targets = createTargetPOJOAdvice(name);
@@ -114,7 +114,7 @@ public class AdvisorChainFactory implements Startable {
 		for (Advisor advisor : ejbInterceptorNames) {
 			MethodInterceptor ejbInterceptor = (MethodInterceptor) containerCallback.getContainerWrapper().lookup(advisor.getAdviceName());
 			interceptorsForEJB.add(ejbInterceptor);
-			Debug.logVerbose("[JdonFramework] find ejbService's interceptos size=" + interceptorsForEJB.size(), module);
+			Debug.logVerbose("[alieee] find ejbService's interceptos size=" + interceptorsForEJB.size(), module);
 		}
 
 	}
@@ -124,7 +124,7 @@ public class AdvisorChainFactory implements Startable {
 			return;
 		if (!interceptors.isEmpty())
 			return;
-		Debug.logVerbose("[JdonFramework] enter  create PointcutAdvisor  ", module);
+		Debug.logVerbose("[alieee] enter  create PointcutAdvisor  ", module);
 		try {
 			List<Advisor> pojoInterceptorNames = interceptorsChain.getAdvisors(Pointcut.POJO_TARGET_PROPS_SERVICES);
 			if (pojoInterceptorNames == null)
@@ -138,7 +138,7 @@ public class AdvisorChainFactory implements Startable {
 				if (interceptor != null)
 					interceptors.add(interceptor);
 			}
-			Debug.logVerbose("[JdonFramework] find pojoService's interceptos size=" + interceptors.size(), module);
+			Debug.logVerbose("[alieee] find pojoService's interceptos size=" + interceptors.size(), module);
 		} catch (Exception e) {
 			Debug.logError("error:" + e, module);
 
@@ -149,7 +149,7 @@ public class AdvisorChainFactory implements Startable {
 	protected List<MethodInterceptor> createTargetPOJOAdvice(String name) throws Exception {
 		List<MethodInterceptor> myinterceptors = Collections.synchronizedList(new ArrayList());
 
-		Debug.logVerbose("[JdonFramework] enter  create PointcutAdvisor2  ", module);
+		Debug.logVerbose("[alieee] enter  create PointcutAdvisor2  ", module);
 		List<Advisor> pojoInterceptorNames = interceptorsChain.getAdvisors(name);
 		if (pojoInterceptorNames == null)
 			return myinterceptors;
@@ -157,7 +157,7 @@ public class AdvisorChainFactory implements Startable {
 		for (Advisor advisor : pojoInterceptorNames) {
 			MethodInterceptor interceptor = (MethodInterceptor) containerCallback.getContainerWrapper().lookup(advisor.getAdviceName());
 			myinterceptors.add(interceptor);
-			Debug.logVerbose("[JdonFramework] find pojoService's interceptos size=" + myinterceptors.size(), module);
+			Debug.logVerbose("[alieee] find pojoService's interceptos size=" + myinterceptors.size(), module);
 		}
 		return myinterceptors;
 	}

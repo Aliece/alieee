@@ -31,7 +31,7 @@ public class ContainerComponentsXmlLoader extends XmlParser {
 
     public void parse(Element root, Map mps) throws Exception {
         List components = root.getChildren("component");
-        Debug.logVerbose("[JdonFramework] found component size:" + components.size(), module);
+        Debug.logVerbose("[alieee] found component size:" + components.size(), module);
         Iterator iter = components.iterator();
         
         ComponentMetaDef componentMetaDef;
@@ -49,7 +49,7 @@ public class ContainerComponentsXmlLoader extends XmlParser {
               while (i.hasNext()) {
                 Element constructor = (Element) i.next();
                 String value = constructor.getAttributeValue("value");
-                Debug.logVerbose("[JdonFramework] component constructor=" + value, module);
+                Debug.logVerbose("[alieee] component constructor=" + value, module);
                 constructors[j] = value;
                 j++;
               }

@@ -61,7 +61,7 @@ public class BeforeAfterMethodTarget implements Startable {
 
 		Object result = null;
 		try {
-			Debug.logVerbose("[JdonFramework] enter FixedMethodInvocation", module);
+			Debug.logVerbose("[alieee] enter FixedMethodInvocation", module);
 
 			if (iinfo != null) {
 				Method adviceBeforeTargetMethod = getAdviceBeforeTargetMethod(target, iinfo, invokedmethod);
@@ -136,7 +136,7 @@ public class BeforeAfterMethodTarget implements Startable {
 			}
 			returning = executeBeforeAdvice(adviceBeforeTargetMethod, targetParameters, interceptorMethod, interceptor, iinfo);
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework]doBefore error: " + e, module);
+			Debug.logError("[alieee]doBefore error: " + e, module);
 		}
 		return returning;
 	}
@@ -244,7 +244,7 @@ public class BeforeAfterMethodTarget implements Startable {
 			resultReturning = execAfterAdvice(result, interceptorMethod, interceptor, iinfo);
 
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework]doAfter error: " + e, module);
+			Debug.logError("[alieee]doAfter error: " + e, module);
 		}
 		return resultReturning;
 	}

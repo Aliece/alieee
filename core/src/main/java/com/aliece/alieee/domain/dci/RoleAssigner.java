@@ -83,7 +83,7 @@ public class RoleAssigner {
 		Class[] inters = role.getClass().getInterfaces();
 		if (inters == null || inters.length == 0) {
 			Debug.logError(
-					"[JdonFramework] role:" + role.getClass() + " should implements a interface when be assigned to data:" + datamodel.getClass(),
+					"[alieee] role:" + role.getClass() + " should implements a interface when be assigned to data:" + datamodel.getClass(),
 					module);
 			return null;
 		}

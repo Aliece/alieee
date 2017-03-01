@@ -55,11 +55,11 @@ public class CacheInterceptor implements MethodInterceptor, Startable {
 		Method method = invocation.getMethod();
 
 		if (!methodMatchsModelGET(method)) {
-			// Debug.logVerbose("[JdonFramework] cacheInteceptor don't action, enter next invocation.proceed()",
+			// Debug.logVerbose("[alieee] cacheInteceptor don't action, enter next invocation.proceed()",
 			// module);
 			return invocation.proceed(); // 下一个interceptor
 		}
-		Debug.logVerbose("[JdonFramework] enter cacheInteceptor method:" + method.getName(), module);
+		Debug.logVerbose("[alieee] enter cacheInteceptor method:" + method.getName(), module);
 		Class modelClass = method.getReturnType();
 		String dataKey = getArguments(invocation);
 		if (dataKey == null || modelClass == null)
@@ -70,13 +70,13 @@ public class CacheInterceptor implements MethodInterceptor, Startable {
 			if (model == null) {
 				model = invocation.proceed(); // 下一个interceptor
 				if (model != null && modelClass.isAssignableFrom(model.getClass())) {
-					Debug.logVerbose("[JdonFramework] save to cache", module);
+					Debug.logVerbose("[alieee] save to cache", module);
 					model = modelManager.addCache(modelKey, model);
 				}
 			}
 			return model;
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework]CacheInterceptor Exception error:" + e + " method:" + method.getName() + " return class:" + modelClass
+			Debug.logError("[alieee]CacheInterceptor Exception error:" + e + " method:" + method.getName() + " return class:" + modelClass
 					+ " dataKey:" + dataKey, module);
 		}
 		return invocation.proceed();
@@ -106,7 +106,7 @@ public class CacheInterceptor implements MethodInterceptor, Startable {
 			if (returnClass.getSuperclass() == null)
 				return condition; // 无返回值，不做缓存
 
-			Debug.logVerbose("[JdonFramework]methodMatchsModelGET: returnClassName = " + returnClass.getName(), module);
+			Debug.logVerbose("[alieee]methodMatchsModelGET: returnClassName = " + returnClass.getName(), module);
 			if (ModelUtil.isModel(returnClass)) {
 				if (mehtodName.indexOf(match_MethodName) != -1) {
 					condition = true;
@@ -116,9 +116,9 @@ public class CacheInterceptor implements MethodInterceptor, Startable {
 				}
 			}
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework]Exception error:" + ex, module);
+			Debug.logError("[alieee]Exception error:" + ex, module);
 		} catch (Throwable the) {
-			Debug.logError("[JdonFramework]Throwable error:" + the, module);
+			Debug.logError("[alieee]Throwable error:" + the, module);
 		}
 		return condition;
 
@@ -144,7 +144,7 @@ public class CacheInterceptor implements MethodInterceptor, Startable {
 				return null;
 			return args[0].toString();
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework] method:" + invocation.getMethod().getName() + "  " + ex, module);
+			Debug.logError("[alieee] method:" + invocation.getMethod().getName() + "  " + ex, module);
 			return null;
 		}
 

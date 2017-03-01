@@ -41,7 +41,7 @@ public class ComponentLoader {
 		Set<String> classes = annotationScaner.getScannedAnnotations(context).get(Component.class.getName());
 		if (classes == null)
 			return;
-		Debug.logVerbose("[JdonFramework] found Annotation components size:" + classes.size(), module);
+		Debug.logVerbose("[alieee] found Annotation components size:" + classes.size(), module);
 		for (Object className : classes) {
 			createAnnotationComponentClass((String) className, annotationHolder, containerWrapper);
 		}
@@ -51,7 +51,7 @@ public class ComponentLoader {
 		try {
 			Class cclass = Utils.createClass(className);
 			Component cp = (Component) cclass.getAnnotation(Component.class);
-			Debug.logVerbose("[JdonFramework] load Annotation component name:" + cclass.getName() + " class:" + className, module);
+			Debug.logVerbose("[alieee] load Annotation component name:" + cclass.getName() + " class:" + className, module);
 
 			String name = UtilValidate.isEmpty(cp.value()) ? cclass.getName() : cp.value();
 			annotationHolder.addComponent(name, cclass);
@@ -60,7 +60,7 @@ public class ComponentLoader {
 
 			consumerLoader.loadMehtodAnnotations(cclass, containerWrapper);
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] createAnnotationComponentClass error:" + e + className, module);
+			Debug.logError("[alieee] createAnnotationComponentClass error:" + e + className, module);
 
 		}
 	}

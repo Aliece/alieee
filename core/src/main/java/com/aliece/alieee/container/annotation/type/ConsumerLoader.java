@@ -47,7 +47,7 @@ public class ConsumerLoader {
 		Set<String> classes = annotationScaner.getScannedAnnotations(context).get(Consumer.class.getName());
 		if (classes == null)
 			return;
-		Debug.logVerbose("[JdonFramework] found Annotation components size:" + classes.size(), module);
+		Debug.logVerbose("[alieee] found Annotation components size:" + classes.size(), module);
 		for (String className : classes) {
 			createAnnotationConsumerClass(className, annotationHolder, containerWrapper);
 		}
@@ -57,12 +57,12 @@ public class ConsumerLoader {
 		try {
 			Class cclass = Utils.createClass(className);
 			if (!DomainEventHandler.class.isAssignableFrom(cclass)) {
-				Debug.logError("[JdonFramework] " + cclass.getName()
+				Debug.logError("[alieee] " + cclass.getName()
 						+ " that with @Consumer annotataion must also implements  com.aliece.alieee.domain.message.DomainEventHandler ", module);
 				return;
 			}
 			Consumer consumer = (Consumer) cclass.getAnnotation(Consumer.class);
-			Debug.logVerbose("[JdonFramework] load Annotation Consumer name:" + cclass.getName() + " class:" + className, module);
+			Debug.logVerbose("[alieee] load Annotation Consumer name:" + cclass.getName() + " class:" + className, module);
 
 			String topicname = UtilValidate.isEmpty(consumer.value()) ? cclass.getName() : consumer.value();
 			String topicKey = ConsumerLoader.TOPICNAME + topicname;
@@ -72,7 +72,7 @@ public class ConsumerLoader {
 			containerWrapper.register(name, cclass);
 
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] createAnnotationComponentClass error:" + e + className, module);
+			Debug.logError("[alieee] createAnnotationComponentClass error:" + e + className, module);
 
 		}
 	}

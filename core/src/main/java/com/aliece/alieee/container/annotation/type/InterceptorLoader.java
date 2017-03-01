@@ -43,7 +43,7 @@ public class InterceptorLoader {
 		Set<String> classes = annotationScaner.getScannedAnnotations(context).get(Interceptor.class.getName());
 		if (classes == null)
 			return;
-		Debug.logVerbose("[JdonFramework] found Annotation Interceptor size:" + classes.size(), module);
+		Debug.logVerbose("[alieee] found Annotation Interceptor size:" + classes.size(), module);
 		for (Object className : classes) {
 			createAnnotationInterceptor((String) className, annotationHolder);
 		}
@@ -73,9 +73,9 @@ public class InterceptorLoader {
 			}
 			POJOTargetMetaDef pojoMetaDef = new POJOTargetMetaDef(name, className);
 			annotationHolder.getTargetMetaDefHolder().add(name, pojoMetaDef);
-			Debug.logVerbose("[JdonFramework] load Annotation Interceptor name:" + name + " target class:" + className, module);
+			Debug.logVerbose("[alieee] load Annotation Interceptor name:" + name + " target class:" + className, module);
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] createAnnotationInterceptorClass error:" + e + className, module);
+			Debug.logError("[alieee] createAnnotationInterceptorClass error:" + e + className, module);
 		}
 	}
 

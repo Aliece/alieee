@@ -25,13 +25,6 @@ public class FutureDirector {
 		channelExecutor = new ChannelExecutor(maxconcurrentTaskCount);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.aliece.alieee.async.message.MessageMediator#sendMessage(com.aliece.alieee.async.message
-	 * .EventMessage)
-	 */
 	public void fire(DomainMessage domainMessage) {
 		channelExecutor.actionListener(domainMessage);
 	}

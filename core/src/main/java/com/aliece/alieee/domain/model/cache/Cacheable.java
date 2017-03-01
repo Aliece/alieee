@@ -21,7 +21,7 @@ package com.aliece.alieee.domain.model.cache;
  *
  *
  *
- * @version JdonFramework 2005 v1.0
+ * @version alieee 2005 v1.0
  */
 public interface Cacheable {
 

@@ -44,7 +44,7 @@ public class InroduceLoader {
 		Set<String> classes = annotationScaner.getScannedAnnotations(context).get(Introduce.class.getName());
 		if (classes == null)
 			return;
-		Debug.logVerbose("[JdonFramework] found Annotation IntroduceInfo size:" + classes.size(), module);
+		Debug.logVerbose("[alieee] found Annotation IntroduceInfo size:" + classes.size(), module);
 		for (Object className : classes) {
 			createAnnotationIntroduceInfoClass((String) className, annotationHolder, containerWrapper);
 		}
@@ -63,9 +63,9 @@ public class InroduceLoader {
 				targetName = targetMetaDefHolder.lookupForName(targetclass.getName());
 			}
 			introduceInfoHolder.addTargetClassNames(targetclass, targetName);
-			Debug.logVerbose("[JdonFramework] load Annotation IntroduceInfo name:" + adviceName + " target class:" + className, module);
+			Debug.logVerbose("[alieee] load Annotation IntroduceInfo name:" + adviceName + " target class:" + className, module);
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] createAnnotationIntroduceInfoClass error:" + e + className, module);
+			Debug.logError("[alieee] createAnnotationIntroduceInfoClass error:" + e + className, module);
 		}
 	}
 }

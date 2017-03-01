@@ -68,7 +68,7 @@ public class PicoContainerWrapper implements ContainerWrapper, java.io.Serializa
 
 	public synchronized void register(String name, Class className) {
 		try {
-			Debug.logVerbose("[JdonFramework]register: name=" + name + " class=" + className.getName(), module);
+			Debug.logVerbose("[alieee]register: name=" + name + " class=" + className.getName(), module);
 			container.registerComponentImplementation(name, className);
 			registryDirectory.addComponentName(className, name);
 
@@ -82,7 +82,7 @@ public class PicoContainerWrapper implements ContainerWrapper, java.io.Serializa
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 			Class oClass = classLoader.loadClass(name);
 
-			Debug.logVerbose("[JdonFramework]register: name=" + name + " class=" + oClass.getName(), module);
+			Debug.logVerbose("[alieee]register: name=" + name + " class=" + oClass.getName(), module);
 			register(name, oClass);
 			registryDirectory.addComponentName(oClass, name);
 
@@ -97,28 +97,28 @@ public class PicoContainerWrapper implements ContainerWrapper, java.io.Serializa
 			return;
 		}
 		try {
-			Debug.logVerbose("[JdonFramework]register: name=" + name + " class=" + className.getName(), module);
-			Debug.logVerbose("[JdonFramework] constructor params size =" + constructors.length, module);
+			Debug.logVerbose("[alieee]register: name=" + name + " class=" + className.getName(), module);
+			Debug.logVerbose("[alieee] constructor params size =" + constructors.length, module);
 
 			// check the class 's construtor parameter type is String[] or
 			// String s1, String s2 ..
 			Constructor[] cs = className.getConstructors();
 			Class[] types = cs[0].getParameterTypes();
-			Debug.logVerbose("[JdonFramework] constructor first ParameterType is " + types[0], module);
+			Debug.logVerbose("[alieee] constructor first ParameterType is " + types[0], module);
 			if (types[0].isAssignableFrom(String.class)) {// parameter type is
 				// String s1, String
 				// s2 ..
-				Debug.logVerbose("[JdonFramework]parameter type is  String s1, String s2 ", module);
+				Debug.logVerbose("[alieee]parameter type is  String s1, String s2 ", module);
 				Parameter[] params = new Parameter[constructors.length];
 				for (int i = 0; i < constructors.length; i++) {
 					ConstantParameter param = new ConstantParameter(new String(constructors[i]));
-					Debug.logVerbose("[JdonFramework] register its constructor value is " + constructors[i], module);
+					Debug.logVerbose("[alieee] register its constructor value is " + constructors[i], module);
 					params[i] = param;
 				}
 				container.registerComponentImplementation(name, className, params);
 				registryDirectory.addComponentName(className, name);
 			} else if (types[0].isArray()) { // parameter type is String[]
-				Debug.logVerbose("[JdonFramework]parameter type is String[] " + constructors, module);
+				Debug.logVerbose("[alieee]parameter type is String[] " + constructors, module);
 				ConstantParameter param = new ConstantParameter(constructors);
 				Parameter[] params = new Parameter[] { param };
 				container.registerComponentImplementation(name, className, params);
@@ -135,7 +135,7 @@ public class PicoContainerWrapper implements ContainerWrapper, java.io.Serializa
 
 	public synchronized void register(String name, Object instance) {
 		try {
-			Debug.logVerbose("[JdonFramework]register: name=" + name + " class=" + instance.getClass().getName(), module);
+			Debug.logVerbose("[alieee]register: name=" + name + " class=" + instance.getClass().getName(), module);
 			container.registerComponentInstance(name, instance);
 			registryDirectory.addComponentName(instance.getClass(), name);
 		} catch (Exception ex) {
@@ -148,7 +148,7 @@ public class PicoContainerWrapper implements ContainerWrapper, java.io.Serializa
 		try {
 			container.start();
 		} catch (RuntimeException e) {
-			Debug.logError("[JdonFramework] container start error: " + e, module);
+			Debug.logError("[alieee] container start error: " + e, module);
 		}
 	}
 
@@ -159,7 +159,7 @@ public class PicoContainerWrapper implements ContainerWrapper, java.io.Serializa
 			this.container = null;
 			this.registryDirectory = null;
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] container stop error: " + e, module);
+			Debug.logError("[alieee] container stop error: " + e, module);
 		} finally {
 			start = false;
 		}
@@ -206,20 +206,20 @@ public class PicoContainerWrapper implements ContainerWrapper, java.io.Serializa
 	 * @return object new instance
 	 */
 	public Object getComponentNewInstance(String name) {
-		Debug.logVerbose("[JdonFramework]getComponentNewInstance: name=" + name, module);
+		Debug.logVerbose("[alieee]getComponentNewInstance: name=" + name, module);
 		ComponentAdapter componentAdapter = container.getComponentAdapter(name);
 		if (componentAdapter == null) {
-			Debug.logWarning("[JdonFramework]Not find the component in container :" + name, module);
+			Debug.logWarning("[alieee]Not find the component in container :" + name, module);
 			return null;
 		}
 		return componentAdapter.getComponentInstance(container);
 	}
 
 	public Class getComponentClass(String name) {
-		Debug.logVerbose("[JdonFramework]getComponentClass: name=" + name, module);
+		Debug.logVerbose("[alieee]getComponentClass: name=" + name, module);
 		ComponentAdapter componentAdapter = container.getComponentAdapter(name);
 		if (componentAdapter == null)
-			Debug.logVerbose("[JdonFramework]Not find the component in container :" + name, module);
+			Debug.logVerbose("[alieee]Not find the component in container :" + name, module);
 		return componentAdapter.getComponentImplementation();
 	}
 

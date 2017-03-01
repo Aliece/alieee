@@ -48,10 +48,10 @@ public class ContainerSetupScript {
 			synchronized (context) {
 				cb = containerBuilderContext.createContainerBuilder(context);
 				context.setAttribute(ContainerRegistryBuilder.APPLICATION_CONTEXT_ATTRIBUTE_NAME, cb);
-				Debug.logVerbose("[JdonFramework] Initialize the container OK ..");
+				Debug.logVerbose("[alieee] Initialize the container OK ..");
 			}
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] initialized error: " + e, module);
+			Debug.logError("[alieee] initialized error: " + e, module);
 		}
 	}
 
@@ -90,7 +90,7 @@ public class ContainerSetupScript {
 		try {
 			cb = (ContainerRegistryBuilder) context.getAttribute(ContainerRegistryBuilder.APPLICATION_CONTEXT_ATTRIBUTE_NAME);
 			if (cb == null) {
-				Debug.logError("[JdonFramework] at first call prepare method");
+				Debug.logError("[alieee] at first call prepare method");
 				return;
 			}
 			if (cb.isKernelStartup())
@@ -118,10 +118,10 @@ public class ContainerSetupScript {
 				context.removeAttribute(ContainerRegistryBuilder.APPLICATION_CONTEXT_ATTRIBUTE_NAME);
 				containerBuilderContext = null;
 				// context.removeAttribute(ContainerBuilder.APPLICATION_CONTEXT_ATTRIBUTE_NAME);
-				Debug.logVerbose("[JdonFramework] stop the container ..", module);
+				Debug.logVerbose("[alieee] stop the container ..", module);
 			}
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] destroyed error: " + e, module);
+			Debug.logError("[alieee] destroyed error: " + e, module);
 		}
 
 	}

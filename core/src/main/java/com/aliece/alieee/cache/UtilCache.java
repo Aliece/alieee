@@ -123,7 +123,7 @@ public class UtilCache {
 		try {
 			String value = propsUtil.getProperty("cache." + cacheName + ".maxSize");
 			if (UtilValidate.isNotEmpty(value)) {
-				Debug.logVerbose("[JdonFramework]found cache configure: cache." + cacheName + ".maxSize = " + value, module);
+				Debug.logVerbose("[alieee]found cache configure: cache." + cacheName + ".maxSize = " + value, module);
 				Long longValue = new Long(value);
 				if (longValue != null) {
 					maxSize = longValue.longValue();
@@ -190,7 +190,7 @@ public class UtilCache {
 			Debug.logError(e);
 		} finally {
 		}
-		Debug.logVerbose("[JdonFramework]cache now size = " + keyLRUList.size() + " maxSize =" + maxSize + " this Cache id:" + this.hashCode(),
+		Debug.logVerbose("[alieee]cache now size = " + keyLRUList.size() + " maxSize =" + maxSize + " this Cache id:" + this.hashCode(),
 				module);
 	}
 
@@ -223,7 +223,7 @@ public class UtilCache {
 
 		hitCount++;
 		// double hitPercent = 100*(double)hitCount/(hitCount + missCount);
-		// Debug.logVerbose("[JdonFramework]cache hit percent: " +
+		// Debug.logVerbose("[alieee]cache hit percent: " +
 		// percentFormat.format(hitPercent)+"%", module);
 
 		if (maxSize > 0) {

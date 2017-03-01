@@ -38,7 +38,7 @@ public class ModelCGLIBMethodInterceptorImp implements MethodInterceptor {
 
 		Object result = null;
 		try {
-			Debug.logVerbose("[JdonFramework]<----> executing MethodInterceptor for method=" + invokedmethod.getDeclaringClass().getName() + "."
+			Debug.logVerbose("[alieee]<----> executing MethodInterceptor for method=" + invokedmethod.getDeclaringClass().getName() + "."
 					+ invokedmethod.getName() + " successfully!", module);
 
 			MethodInvocation methodInvocation = new ModelMethodInvocation(object, methodInterceptors, invokedmethod, args, methodProxy);

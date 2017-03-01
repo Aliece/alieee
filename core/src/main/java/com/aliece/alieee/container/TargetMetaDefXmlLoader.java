@@ -55,11 +55,11 @@ public class TargetMetaDefXmlLoader implements Startable {
 	}
 
 	public void loadXML() {
-		Debug.logVerbose("[JdonFramework]TargetMetaDefXmlLoader start ... found configures:" + appConfigureFiles.getConfigList().size(), module);
+		Debug.logVerbose("[alieee]TargetMetaDefXmlLoader start ... found configures:" + appConfigureFiles.getConfigList().size(), module);
 		Iterator iter = appConfigureFiles.getConfigList().iterator();
 		while (iter.hasNext()) {
 			String configFileName = (String) iter.next();
-			Debug.logVerbose("[JdonFramework] start to load configure: " + configFileName, module);
+			Debug.logVerbose("[alieee] start to load configure: " + configFileName, module);
 			Map<String, TargetMetaDef> pojoMps = xmlPojoServiceParser.load(configFileName);
 			targetMetaDefHolder.add(pojoMps);
 		}

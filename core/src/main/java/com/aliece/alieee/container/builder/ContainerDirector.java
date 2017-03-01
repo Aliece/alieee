@@ -48,23 +48,23 @@ public class ContainerDirector {
 	}
 
 	public void startup() throws StartupException {
-		Debug.logVerbose("[JdonFramework] <======== JdonFramework beigin to startup =========>", module);
+		Debug.logVerbose("[alieee] <======== alieee beigin to startup =========>", module);
 		if (!cb.isKernelStartup())
 			synchronized (cb) {
 				if (!cb.isKernelStartup()) {
 					try {
-						Debug.logVerbose("[JdonFramework] <------ register the basic components in container.xml ------> ", module);
+						Debug.logVerbose("[alieee] <------ register the basic components in container.xml ------> ", module);
 						cb.registerComponents();
 						ContainerWrapper cw = cb.getContainerWrapper();
-						Debug.logVerbose("[JdonFramework] <------ started micro container ------> ", module);
+						Debug.logVerbose("[alieee] <------ started micro container ------> ", module);
 						cw.start();
 
 						cb.setKernelStartup(true);
 
-						Debug.logVerbose("[JdonFramework] <------ register the pojo services in application's xml ------> ", module);
+						Debug.logVerbose("[alieee] <------ register the pojo services in application's xml ------> ", module);
 						cb.registerUserService();
 
-						Debug.logVerbose("[JdonFramework] <------ register the aspect components in container.xml ------> ", module);
+						Debug.logVerbose("[alieee] <------ register the aspect components in container.xml ------> ", module);
 						cb.registerAspectComponents();
 
 						cb.startApp();
@@ -74,7 +74,7 @@ public class ContainerDirector {
 
 						cw.setStart(true);
 					} catch (Exception ex) {
-						Debug.logError("[JdonFramework] startup container error: " + ex, module);
+						Debug.logError("[alieee] startup container error: " + ex, module);
 						throw new StartupException();
 					}
 				}
@@ -83,7 +83,7 @@ public class ContainerDirector {
 	}
 
 	public void shutdown() throws StartupException {
-		Debug.logVerbose("[JdonFramework] <======== JdonFramework beigin to shutdown =========>", module);
+		Debug.logVerbose("[alieee] <======== alieee beigin to shutdown =========>", module);
 		if (cb.isKernelStartup())
 			synchronized (cb) {
 				if (cb.isKernelStartup()) {
@@ -95,7 +95,7 @@ public class ContainerDirector {
 						cb.setKernelStartup(false);
 						Debug.logVerbose("Jdon Framework shutdown successfully! ");
 					} catch (Exception ex) {
-						Debug.logError("[JdonFramework] shutdown container error: " + ex, module);
+						Debug.logError("[alieee] shutdown container error: " + ex, module);
 						throw new StartupException();
 					}
 				}

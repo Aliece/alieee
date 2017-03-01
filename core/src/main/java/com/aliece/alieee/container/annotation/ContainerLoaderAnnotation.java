@@ -37,7 +37,7 @@ public class ContainerLoaderAnnotation {
 		if (annotationHolder != null)
 			return annotationHolder;
 
-		Debug.logVerbose("[JdonFramework] load all Annotation components ", module);
+		Debug.logVerbose("[alieee] load all Annotation components ", module);
 		annotationHolder = new AnnotationHolder();
 
 		ConsumerLoader consumerLoader = new ConsumerLoader(annotationScaner);

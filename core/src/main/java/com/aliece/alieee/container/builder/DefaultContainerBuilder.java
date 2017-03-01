@@ -78,11 +78,11 @@ public class DefaultContainerBuilder implements ContainerRegistryBuilder {
 				existedAppConfigureFiles = (AppConfigureCollection) containerWrapper.lookup(AppConfigureCollection.NAME);
 			}
 			if (!existedAppConfigureFiles.getConfigList().contains(configureFileName)) {
-				Debug.logInfo("[JdonFramework]found jdonframework configuration:" + configureFileName, module);
+				Debug.logInfo("[alieee]found jdonframework configuration:" + configureFileName, module);
 				existedAppConfigureFiles.addConfigList(configureFileName);
 			}
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework] found jdonframework configuration error:" + ex, module);
+			Debug.logError("[alieee] found jdonframework configuration error:" + ex, module);
 			throw new Exception(ex);
 		}
 	}
@@ -91,7 +91,7 @@ public class DefaultContainerBuilder implements ContainerRegistryBuilder {
 	 * register all basic components in container.xml
 	 */
 	public void registerComponents() throws Exception {
-		Debug.logVerbose("[JdonFramework] note: registe all basic components in container.xml size=" + basicComponents.size(), module);
+		Debug.logVerbose("[alieee] note: registe all basic components in container.xml size=" + basicComponents.size(), module);
 		try {
 			Iterator iter = basicComponents.iterator();
 			while (iter.hasNext()) {
@@ -100,7 +100,7 @@ public class DefaultContainerBuilder implements ContainerRegistryBuilder {
 				xmlcontainerRegistry.registerComponentMetaDef(componentMetaDef);
 			}
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework] register basiceComponents error:" + ex, module);
+			Debug.logError("[alieee] register basiceComponents error:" + ex, module);
 			throw new Exception(ex);
 		}
 
@@ -110,12 +110,12 @@ public class DefaultContainerBuilder implements ContainerRegistryBuilder {
 	 * register all apsect components in aspect.xml
 	 */
 	public void registerAspectComponents() throws Exception {
-		Debug.logVerbose("[JdonFramework] note: registe aspect components ", module);
+		Debug.logVerbose("[alieee] note: registe aspect components ", module);
 		try {
 			InterceptorsChain existedInterceptorsChain = (InterceptorsChain) containerWrapper.lookup(ComponentKeys.INTERCEPTOR_CHAIN);
 
 			Iterator iter = aspectConfigComponents.iterator();
-			Debug.logVerbose("[JdonFramework] 3 aspectConfigComponents size:" + aspectConfigComponents.size(), module);
+			Debug.logVerbose("[alieee] 3 aspectConfigComponents size:" + aspectConfigComponents.size(), module);
 			while (iter.hasNext()) {
 				String name = (String) iter.next();
 				AspectComponentsMetaDef componentMetaDef = (AspectComponentsMetaDef) aspectConfigComponents.getComponentMetaDef(name);
@@ -126,7 +126,7 @@ public class DefaultContainerBuilder implements ContainerRegistryBuilder {
 				existedInterceptorsChain.addInterceptor(componentMetaDef.getPointcut(), name);
 			}
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework] registerAspectComponents error:" + ex, module);
+			Debug.logError("[alieee] registerAspectComponents error:" + ex, module);
 			throw new Exception(ex);
 		}
 
@@ -140,7 +140,7 @@ public class DefaultContainerBuilder implements ContainerRegistryBuilder {
 	 * 
 	 */
 	public void registerUserService() throws Exception {
-		Debug.logVerbose("[JdonFramework] note: registe user pojoservice ", module);
+		Debug.logVerbose("[alieee] note: registe user pojoservice ", module);
 		try {
 			TargetMetaDefXmlLoader targetMetaDefXmlLoader = (TargetMetaDefXmlLoader) containerWrapper.lookup(ComponentKeys.SERVICE_METALOADER_NAME);
 			targetMetaDefXmlLoader.loadXML();
@@ -157,7 +157,7 @@ public class DefaultContainerBuilder implements ContainerRegistryBuilder {
 				}
 			}
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework] registerUserService error:" + ex, module);
+			Debug.logError("[alieee] registerUserService error:" + ex, module);
 			throw new Exception(ex);
 		}
 	}

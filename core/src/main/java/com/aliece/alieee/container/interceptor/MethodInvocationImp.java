@@ -56,7 +56,7 @@ public class MethodInvocationImp implements MethodInvocation {
 	 */
 	public Object proceed() throws Throwable, Exception {
 		if (currentInterceptorInt == interceptors.size() - 1) {
-			Debug.logVerbose("[JdonFramework] finish call all inteceptors", module);
+			Debug.logVerbose("[alieee] finish call all inteceptors", module);
 			return beforeAfterMethodTarget.invoke(method, args, methodProxy);
 		}
 
@@ -65,7 +65,7 @@ public class MethodInvocationImp implements MethodInvocation {
 			MethodInterceptor methodInterceptor = (MethodInterceptor) interceptor;
 			return methodInterceptor.invoke(this);
 		} else {
-			Debug.logVerbose("[JdonFramework] null finish call all inteceptors", module);
+			Debug.logVerbose("[alieee] null finish call all inteceptors", module);
 			return beforeAfterMethodTarget.invoke(method, args, methodProxy);
 		}
 	}

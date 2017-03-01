@@ -14,6 +14,7 @@
         <module>core</module>
         <module>service</module>
         <module>web</module>
+        <module>sub-core</module>
     </modules>
 
     <properties>

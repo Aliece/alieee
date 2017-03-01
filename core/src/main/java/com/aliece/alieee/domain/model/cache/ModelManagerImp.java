@@ -59,7 +59,7 @@ public class ModelManagerImp implements ModelManager {
 			model = modelAdvisor.createProxy(model);
 			modelCacheManager.saveCache(modelKey.getDataKey(), modelClassName, model);
 		} catch (Exception e) {
-			Debug.logError("addCache error:" + e, module);
+			Debug.logError("[alieee]addCache error:" + e, module);
 		}
 		return model;
 	}

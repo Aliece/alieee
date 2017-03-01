@@ -55,7 +55,7 @@ public class AnnotationScaner {
 				try {
 					db.scanArchives(urls);
 				} catch (Exception e) {
-					System.err.print("[JdonFramework] scanAnnotation error:" + e);
+					System.err.print("[alieee] scanAnnotation error:" + e);
 				}
 				return db;
 			}

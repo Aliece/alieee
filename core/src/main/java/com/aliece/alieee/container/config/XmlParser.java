@@ -35,7 +35,7 @@ import java.util.Map;
  *
  * </p>
  * <p>
- * @version JdonFramework 2005 v1.0
+ * @version alieee 2005 v1.0
  * </p>
  */
 public abstract class XmlParser {
@@ -56,31 +56,31 @@ public abstract class XmlParser {
 			Element root = doc.getRootElement();
 			parse(root, mps);
 
-			Debug.logVerbose("[JdonFramework]<!--   config load finished -->", module);
+			Debug.logVerbose("[alieee]<!--   config load finished -->", module);
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework]configure FileName: " + configFileName + " parsed error: " + ex, module);
+			Debug.logError("[alieee]configure FileName: " + configFileName + " parsed error: " + ex, module);
 		}
 		return mps;
 	}
 
 	protected Document buildDocument(String configFileName) {
-		Debug.logVerbose("[JdonFramework] locate configure file  :" + configFileName, module);
+		Debug.logVerbose("[alieee] locate configure file  :" + configFileName, module);
 		Document doc = null;
 		try {
 			InputStream xmlStream = getInputStream(configFileName);
 			if (xmlStream == null) {
-				Debug.logVerbose("[JdonFramework]can't locate file:" + configFileName, module);
+				Debug.logVerbose("[alieee]can't locate file:" + configFileName, module);
 				return null;
 			} else {
-				Debug.logVerbose("[JdonFramework] configure file found :" + xmlStream, module);
+				Debug.logVerbose("[alieee] configure file found :" + xmlStream, module);
 			}
 
 			SAXBuilder builder = new SAXBuilder();
 //			builder.setEntityResolver(new DTDEntityResolver());
 			doc = builder.build(xmlStream);
-			Debug.logVerbose("[JdonFramework] got mapping file ", module);
+			Debug.logVerbose("[alieee] got mapping file ", module);
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] JDOMException error: " + e, module);
+			Debug.logError("[alieee] JDOMException error: " + e, module);
 		}
 		return doc;
 	}

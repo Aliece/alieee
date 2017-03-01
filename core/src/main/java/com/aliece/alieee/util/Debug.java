@@ -35,10 +35,6 @@ import java.text.DateFormat;
 /**
  * Configurable Debug logging wrapper class
  * 
- * @author <a href="mailto:jonesde@ofbiz.org">David E. Jones</a>
- * @author <a href="mailto:jaz@zsolv.com">Andy Zeneski</a>
- * @version 1.0
- * @created July 1, 2001
  */
 public final class Debug {
 
@@ -114,7 +110,7 @@ public final class Debug {
 
 	public static void log(int level, Throwable t, String msg, String module) {
 		if (msg == null)
-			msg = "[jdonframework]";
+			msg = "[alieee]";
 		log(level, t, msg, module, "com.aliece.alieee.util.Debug");
 	}
 

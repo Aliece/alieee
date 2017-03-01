@@ -10,7 +10,7 @@ import com.aliece.alieee.container.startup.ContainerSetupScript;
 import com.aliece.alieee.util.Debug;
 
 /**
- * Java Application call this class to use JdonFramework.
+ * Java Application call this class to use alieee.
  * 
  * 
  * AppUtil appUtil = new AppUtil();
@@ -63,18 +63,18 @@ public class AppUtil extends Application {
 			if (methodName == null)
 				throw new Exception("no configure method value, but now you call it: ");
 
-			Debug.logVerbose("[JdonFramework] construct " + methodName, module);
+			Debug.logVerbose("[alieee] construct " + methodName, module);
 			Class[] paramTypes = new Class[methodParams.length];
 			Object[] p_args = new Object[methodParams.length];
 			for (int i = 0; i < methodParams.length; i++) {
 				paramTypes[i] = methodParams[i].getClass();
 				p_args[i] = methodParams[i];
-				Debug.logVerbose("[JdonFramework], parameter type:" + paramTypes[i] + " and parameter value:" + p_args[i], module);
+				Debug.logVerbose("[alieee], parameter type:" + paramTypes[i] + " and parameter value:" + p_args[i], module);
 			}
 			methodMetaArgs = new MethodMetaArgs(methodName, paramTypes, p_args);
 
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework] createDirectMethod error: " + ex, module);
+			Debug.logError("[alieee] createDirectMethod error: " + ex, module);
 		}
 		return methodMetaArgs;
 	}

@@ -50,7 +50,7 @@ public class EventResultFuture implements EventResultHandler {
 				try {
 					messageListener.action(domainMessage);
 				} catch (Exception e) {
-					System.err.println("[JdonFramework]asynExecMessageListener() error" + e + " message=" + getChannel() + " listener="
+					System.err.println("[alieee]asynExecMessageListener() error" + e + " message=" + getChannel() + " listener="
 							+ messageListener.getClass().getName());
 					return false;
 				}

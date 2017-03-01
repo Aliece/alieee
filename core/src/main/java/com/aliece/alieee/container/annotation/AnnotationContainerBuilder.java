@@ -80,7 +80,7 @@ public class AnnotationContainerBuilder extends DefaultContainerBuilder {
 				}
 			}
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] registerAspectComponents" + e, module);
+			Debug.logError("[alieee] registerAspectComponents" + e, module);
 		}
 	}
 

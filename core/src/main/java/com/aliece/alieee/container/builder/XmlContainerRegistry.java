@@ -46,7 +46,7 @@ public class XmlContainerRegistry extends ContainerRegistry {
 			StartablecomponentsRegistry scr = (StartablecomponentsRegistry) containerWrapper.lookup(StartablecomponentsRegistry.NAME);
 			scr.add(cclass, name);
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework] registerComponentMetaDef error:" + ex, module);
+			Debug.logError("[alieee] registerComponentMetaDef error:" + ex, module);
 		}
 
 	}
@@ -62,7 +62,7 @@ public class XmlContainerRegistry extends ContainerRegistry {
 			scr.add(cclass, name);
 
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework] registerPOJOTargetMetaDef error:" + ex, module);
+			Debug.logError("[alieee] registerPOJOTargetMetaDef error:" + ex, module);
 		}
 	}
 
@@ -76,7 +76,7 @@ public class XmlContainerRegistry extends ContainerRegistry {
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 			classService = classLoader.loadClass(className);
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework] createClass:" + ex, module);
+			Debug.logError("[alieee] createClass:" + ex, module);
 		}
 		return classService;
 

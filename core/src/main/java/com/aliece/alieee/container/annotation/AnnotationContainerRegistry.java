@@ -22,7 +22,7 @@ public class AnnotationContainerRegistry extends ContainerRegistry {
 	}
 
 	public void registerAnnotationComponents() throws Exception {
-		Debug.logVerbose("[JdonFramework] <------ register all annotation components(@component('xxx')/@Interceptor)  ------> ", module);
+		Debug.logVerbose("[alieee] <------ register all annotation components(@component('xxx')/@Interceptor)  ------> ", module);
 		try {
 			AnnotationHolder annotationHolder = containerLoaderAnnotation.loadAnnotationHolder(context, containerWrapper);
 			for (String name : annotationHolder.getComponentNames()) {
@@ -32,7 +32,7 @@ public class AnnotationContainerRegistry extends ContainerRegistry {
 				scr.add(classz, name);
 			}
 		} catch (Exception e) {
-			Debug.logError("[JdonFramework] registerAnnotationComponents error:" + e, module);
+			Debug.logError("[alieee] registerAnnotationComponents error:" + e, module);
 			throw new Exception(e);
 		}
 	}

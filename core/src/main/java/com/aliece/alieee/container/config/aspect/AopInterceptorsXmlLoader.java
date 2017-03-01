@@ -57,7 +57,7 @@ public class AopInterceptorsXmlLoader extends XmlParser {
 
 	public void parse(Element root, Map mps) throws Exception {
 		List interceptors = root.getChildren("interceptor");
-		Debug.logVerbose("[JdonFramework] found interceptor size:" + interceptors.size(), module);
+		Debug.logVerbose("[alieee] found interceptor size:" + interceptors.size(), module);
 		Iterator iter = interceptors.iterator();
 
 		ComponentMetaDef componentMetaDef;
@@ -65,7 +65,7 @@ public class AopInterceptorsXmlLoader extends XmlParser {
 		while (iter.hasNext()) {
 			Element component = (Element) iter.next();
 			String name = component.getAttributeValue("name");
-			Debug.logVerbose("[JdonFramework] found interceptor name:" + name, module);
+			Debug.logVerbose("[alieee] found interceptor name:" + name, module);
 			String className = component.getAttributeValue("class");
 			String pointcut = component.getAttributeValue("pointcut");
 			List mappings = component.getChildren("constructor");
@@ -77,7 +77,7 @@ public class AopInterceptorsXmlLoader extends XmlParser {
 				while (i.hasNext()) {
 					Element constructor = (Element) i.next();
 					String value = constructor.getAttributeValue("value");
-					Debug.logVerbose("[JdonFramework] interceptor " + name + "constructor=" + value, module);
+					Debug.logVerbose("[alieee] interceptor " + name + "constructor=" + value, module);
 					constructors[j] = value;
 					j++;
 				}

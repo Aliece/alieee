@@ -95,7 +95,7 @@ public final class ObjectCreator {
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 			classService = classLoader.loadClass(className);
 		} catch (Exception ex) {
-			System.err.print("[JdonFramework] createClass error:" + ex);
+			System.err.print("[alieee] createClass error:" + ex);
 		}
 		return classService;
 	}

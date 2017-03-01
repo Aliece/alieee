@@ -46,7 +46,7 @@ public class DefaultTargetServiceFactory implements TargetServiceFactory {
 			TargetObjectFactory targetObjectFactory = targetMetaDef.getTargetObjectFactory();
 			o = targetObjectFactory.create(containerCallback);
 		} catch (Exception ex) {
-			Debug.logError("[JdonFramework]create error: " + ex + " " + targetMetaDef.getClassName(), module);
+			Debug.logError("[alieee]create error: " + ex + " " + targetMetaDef.getClassName(), module);
 		} finally {
 		}
 		return o;
